@@ -1,0 +1,80 @@
+﻿<script type="text/x-kendo-template" id="grdApplicantOnboardingChecklistEditor">
+    <div class="k-edit-form-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="field is-vertical" ng-show="isShowReqType">
+                    <div class="field-label is-normal">
+                        <label class="label">
+                            <span class="has-text-weight-semibold">Requirement: </span>
+                        </label>
+                    </div>
+                    <div class="field-body">
+                        <div class="cp-2">
+                            {{ dataItem.OnboardingRequirement.Name }}
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-vertical" ng-show="!isShowReqType">
+                    <div class="field-label is-normal">
+                        <label class="label">Requirement:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <input style="width:100%;"
+                                   id="ddlOnboardingType"
+                                   kendo-drop-down-list="optOnboardingType"
+                                   k-ng-model="dataItem.OnboardingRequirement"
+                                   ng-required="!isShowReqType"
+                                   k-options="optOnboardingType" />
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-vertical">
+                    <div class="field-label is-normal">
+                        <label class="label">
+                            <span class="has-text-weight-semibold">Date Submitted: </span>
+                        </label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input style="width:100%;"
+                                       name="DateSubmitted"
+                                       placeholder="Please Select"
+                                       kendo-date-picker
+                                       k-ng-model="dataItem.DateSubmitted"                                   
+                                        /><!-- k-options="optDateSubmitted" ng-required="true" min-date="{{ todayDateIncreBy1 }}"-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-vertical">
+                    <div class="field-label is-normal">
+                        <label class="label">
+                            <span class="has-text-weight-semibold">Value: </span>
+                        </label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input kendo-masked-text-box="" k-mask="dataItem.OnboardingRequirement.Key.RegexMask" class="k-textbox" style="width: 100%;" ng-model="dataItem.Value" ng-required="dataItem.OnboardingRequirement.Key !== null" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-vertical">
+                    <div class="field-label is-normal">
+                        <label class="label">Remarks:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="k-input k-textbox" id="description" name="description" data-bind="value: Remarks" style="width: 100%; height: 8em;"></textarea><!--ng-model="dataItem.Description"-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

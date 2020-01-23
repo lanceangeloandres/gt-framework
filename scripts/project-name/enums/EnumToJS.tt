@@ -1,0 +1,149 @@
+﻿<#@ template language="C#" debug="True" hostspecific="True" #>
+<#@ assembly name="$(SolutionDir)DLLs\Recruitment.dll" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Recruitment" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+
+
+<#@ output extension="cs" #>
+<#@ include file="$(ProjectDir)\Manager.tt" #>
+
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+
+<#  var RecruitmentAssembly = typeof(Recruitment.AppEnum.CivilStatus)
+                            .Assembly; #>
+
+<# RecruitmentAssembly.GetTypes()
+                .Where(t => t.IsEnum)
+                .Select(t => new
+                {
+                    FileName = t.Name,
+                    jsClassName = t.Name[0].ToString().ToLower() + t.Name.Substring(1),
+                    Type = t,
+                    Fields = Enum.GetValues(t).Cast<object>()
+                        .Select(a => new
+                        {
+                            Name = a,
+                            Value = Enum.Parse(t, a.ToString()),
+                        }).ToList()
+                })
+				.ToList()
+				.ForEach(r => {  #>
+
+				<# manager.StartNewFile(r.FileName + ".js"); #>
+//var _<#= r.jsClassName #> = new <#= r.jsClassName #>();
+recruitment.appEnum.<#= r.jsClassName #> = {
+<# r.Fields.ForEach(ff =>
+			{ #>
+	<#= ff.Name #> : '<#= splitCamelCase(ff.Value.ToString()) #>',
+<# }); #>
+
+	toArray: function (noNone) {
+		if (noNone === undefined || noNone === null) {
+			noNone = false;
+		}
+
+		var _all = [
+			<# r.Fields.ForEach(ff =>
+			{ #>
+{
+			   Value: '<#= ff.Value #>', 
+			   Text: '<#= splitCamelCase(ff.Name.ToString()) #>',
+			   Data: <#= new Func<byte>(() =>
+                            {
+                                try
+                                {
+                                    return (byte) ff.Value;
+                                }
+                                catch (Exception)
+                                {
+                                    return 0;
+                                }
+                            }).Invoke() #>
+			}, <# }); #>			
+		];
+
+		var _noZeroVal = [
+		<# r.Fields.Where(a => a.Name.ToString() != "None").ToList().ForEach(ff =>
+			{ #>
+{
+			   Value: '<#= ff.Value #>', 
+			   Text: '<#= splitCamelCase(ff.Name.ToString()) #>',
+			   Data: <#= new Func<byte>(() =>
+                            {
+                                try
+                                {
+                                    return (byte) ff.Value;
+                                }
+                                catch (Exception)
+                                {
+                                    return 0;
+                                }
+                            }).Invoke() #>
+			}, <# }); #>
+
+		];
+
+		return noNone ? _noZeroVal : _all;
+	}
+};
+
+				<# manager.EndBlock(); #>
+
+				<# });  #>
+
+
+
+
+
+
+
+<# manager.StartNewFile("recruitment-enums.js.bundle"); #>
+<?xml version="1.0" encoding="utf-8"?>
+<bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://vswebessentials.com/schemas/v1/bundle.xsd">
+  <settings>
+    <!--Determines if the bundle file should be automatically optimized after creation/update.-->
+    <minify>true</minify>
+    <!--Determin whether to generate/re-generate this bundle on building the solution.-->
+    <runOnBuild>true</runOnBuild>
+    <!--Specifies a custom subfolder to save files to. By default, compiled output will be placed in the same folder and nested under the original file.-->
+    <outputDirectory />
+  </settings>
+  <!--The order of the <file> elements determines the order of the files in the bundle.-->
+  <files>
+  <# RecruitmentAssembly.GetTypes()
+                .Where(t => t.IsEnum)
+                .Select(t => new
+                {
+                    FileName = t.Name,
+                    jsClassName = t.Name[0].ToString().ToLower() + t.Name.Substring(1),
+                    Type = t,
+                    Fields = Enum.GetValues(t).Cast<object>()
+                        .Select(a => new
+                        {
+                            Name = a,
+                            Value = Enum.Parse(t, a.ToString())
+                        }).ToList()
+                })
+				.ToList()
+		.ForEach(r => { #>
+    <file>/Scripts/Recruitment/enums/<#= r.FileName #>.js</file>
+	<# }); #>
+  </files>
+</bundle>
+<# manager.EndBlock(); #>
+
+
+<# manager.Process(true); #>
+
+<#+
+ public string splitCamelCase(string data)
+        {
+            string strRegex = @"(?<=[a-z])([A-Z])|(?<=[A-Z])([A-Z][a-z])";
+			Regex myRegex = new Regex(strRegex, RegexOptions.None);
+			string strReplace = @" $1$2";
+
+			return myRegex.Replace(data, strReplace);
+        }
+ #>

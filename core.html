@@ -1,0 +1,523 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sample Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Framework CSS Files -->
+    <link rel="stylesheet" href="content/assets/css/bulma.css">
+    <link rel="stylesheet" href="content/assets/css/materialize/1.0.0/material-dashboard.css">
+    <link rel="stylesheet" href="content/assets/css/sidebar/sidebar.css">
+    <link rel="stylesheet" href="content/assets/css/icons.min.css">
+
+   <!-- KendoUI Stylesheet and Override -->
+    <link rel="stylesheet" href="content/assets/css/kendo/2019.3.1023/kendo.material-v2.min.css" />
+    <link rel="stylesheet" href="content/assets/css/kendo-override.css">
+
+    <!-- Project Override Files -->
+    <link rel="stylesheet" href="content/assets/css/framework/1.0.0/framework-override.css">
+    <link rel="stylesheet" href="content/assets/css/main.css">
+
+    <!-- KendoUI JS Files -->
+    <script src="scripts/kendo/2019.3.1023/jquery.min.js"></script>
+    <script src="scripts/angular/1.4.8/angular.min.js"></script>
+    <script src="scripts/angular/1.4.8/angular-route.min.js"></script>
+    <script src="scripts/angular/1.4.8/angular-sanitize.min.js"></script>
+    <script src="scripts/kendo/2019.3.1023/kendo.all.min.js"></script>
+    
+
+</head>
+
+<body>
+    <div ng-app="Sample">
+        <div ng-controller="sampleCtrl">
+            <div class="pageloader"></div>
+            <div class="infraloader is-active"></div>
+
+            <!-- Main sidebar menu -->
+            <nav class="main-menu">
+                <div class="main-menu-inner">
+                    <ul>
+                        <li data-child-menu="sample-menu" data-tooltipster='{"side":"right","animation":"slide"}'
+                            title="Sample" class="tooltipster tooltipstered side-icon side-icon-custom">
+                            <i class="im im-icon-Find-User"></i>
+                        </li>
+                        <li data-child-menu="sample2-menu" data-tooltipster='{"side":"right","animation":"slide"}' title="Sample 2"
+                            class="tooltipster tooltipstered side-icon side-icon-custom">
+                            <i class="sl sl-icon-settings"></i>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <nav class="child-menu">
+                <div class="child-menu-inner">
+                    <ul>
+                        <li class="child-header">
+                            <!-- <div class="sidebar-title">P&A Grant Thorton</div> -->
+                            <a id="close-child-menu" style="z-index: 100;" href="#" class="menu-wrapper">
+                                <span class="icon-box-toggle ef-4">
+                                    <span class="rotate">
+                                        <i class="icon-line-top"></i>
+                                        <i class="icon-line-center"></i>
+                                        <i class="icon-line-bottom"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul id="sample-menu" class="sidebar-menu is-active animated preFadeInRight fadeInRight">
+                        <div class="custom-sidebar-title">
+                            Sample
+                        </div>
+                        <li class="">
+                            <a class="parent-link" href="#">
+                                <span class="material-icons">dashboard</span>
+                                Sample
+                            </a>
+                        </li>
+                    </ul>
+                    <ul id="sample2-menu" class="sidebar-menu animated preFadeInRight fadeInRight">
+                        <div class="custom-sidebar-title">
+                            Sample 2
+                        </div>
+                        <li class="">
+                            <a class="parent-link" href="#">
+                                <span class="material-icons">settings</span>
+                                Sample
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+            <!-- Main dashboard container -->
+            <div id="dashboard-wrapper">
+                <div class="dashboard-wrapper">
+                    <div id="main-dashboard" class="section-wrapper">
+                        <div class="container is-fluid main-content">
+                            <div class="columns">
+                                <div class="column">
+                                    <h3>Sample</h3>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <div id="grdSample"></div>
+                                </div>
+                            </div>
+                            <div kendo-window="viewSample" k-options="optViewSample">
+                                <div class="k-edit-container">
+                                    <div class="columns is-desktop">
+                                        <div class="column">
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Birthdate:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Jun 30, 1973
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Current Address:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Sample
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Email:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        johndoe@email.com
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Contact No:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        8700086236
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Date of Hire:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Mar 05, 2001
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Date of Separation/Exit:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Sep 30, 2003
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Reason of Separation:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, quasi vitae! Esse vel quaerat, ipsum veritatis animi at officia perferendis quia consequuntur id voluptatem quam voluptatibus hic neque assumenda deserunt?
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Job Level:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        L3 - Supervisor, Manager
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Previous Position:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Manager
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Current Employer:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        FEU and San Beda University
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Current Job Title:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Practitioner/Faculty
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Industry of Current Employer:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Educational Institution
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Employment History after P&A Grant Thornton until Current Employer:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        N/A
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="columns is-desktop">
+                                        <div class="column">
+                                            <div class="field is-vertical">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Are you willing to be informed of P&A Grant Thornton employment-related(internal) opportunities?
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Yes
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-vertical">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        If you answered YES - what specific post/s or division/s?
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        N/A
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-vertical">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Are you willing to be tapped for social networking activities within P&A Grant Thorton's client community?
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        No
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-vertical">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Your reasons for choosing Yes or No for question regarding social networking activities within P&A Grant Thorton's client.
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        N/A
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Facebook:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        N/A
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        LinkedIn:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        N/A
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        College:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        University of the East
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Course:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Bachelor of Science, Major in Accountancy
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Graduate Studies:
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Pamantasan ng Lungsod ng Maynila
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-label is-normal">
+                                                    <label class="label">
+                                                        Course (Graduate Studies):
+                                                    </label>
+                                                </div>
+                                                <div class="field-body">
+                                                    <div class="field cp-2">
+                                                        Master in Business Administration
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Main dashboard container -->
+
+            
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        angular.module("Sample", ["kendo.directives"])
+            .controller("sampleCtrl", function ($scope) {
+
+                angular.element(function () {
+                    // Pageloader 2.0 
+                    if ($('.pageloader').length) {
+
+                        $('.pageloader').toggleClass('is-active');
+
+                        $(window).on('load', function () {
+                            var pageloaderTimeout = setTimeout(function () {
+                                $('.pageloader').toggleClass('is-active');
+                                $('.infraloader').toggleClass('is-active')
+                                clearTimeout(pageloaderTimeout);
+                            }, 1500);
+                        })
+                    }
+                });
+
+                $scope.optViewSample = {
+                    title: "Sample",
+                    modal: true,
+                    visible: false,
+                    resizable: false,
+                    actions: ["Maximize", "Close"],
+                    width: "80%"
+                }
+
+                $scope.onViewSample = function () {
+                    $scope.viewSample.center().open();
+                }
+
+                $("#grdSample").kendoGrid({
+                    dataSource: {
+                        data: [
+                            { StaffNo: "180078", Surname: "Doe", Firstname: "John", MiddleName: "Yolo", MaidenName: "N/A", Nickname: "Junel" }
+                            // { Name: "John Doe", CurrentAddress: "Dubai, UAE", Email: "johndoe@email.com", Contact: "7-8000", DateOfHire: "July 4, 1992", DateSeparated: "July 5, 1993", PrevPosition: "Senior Developer", PreviousDivision: "PSSD", MailingList: "Yes" }
+                        ],
+                    },
+                    sortable: true,
+                    reorderable: true,
+                    resizable: true,
+                    filterable: false,
+                    columnMenu: false,
+                    pageable: {
+                        refresh: true,
+                        pageSizes: true
+                    },
+                    noRecords: {
+                        template: '<div class="k-grid-norecords ng-scope"><div class="k-grid-norecords-template" style="margin:0 auto;position:static;">No Entry Found</div></div>'
+                    },
+                    dataBound: function (e) {
+                        $("[view-sample]").click(function () {
+                            $scope.onViewSample();
+                        });
+                    },
+                    columns: [
+                        {
+                            field: "StaffNo",
+                            title: "Staff No.",
+                            width: 150
+                        },
+                        {
+                            field: "Surname",
+                            title: "Surname",
+                            width: 150
+                        },
+                        {
+                            field: "Firstname",
+                            title: "First name",
+                            width: 150
+                        },
+                        {
+                            field: "MiddleName",
+                            title: "Middle Name",
+                            width: 150
+                        },
+                        {
+                            field: "MaidenName",
+                            title: "Maiden Name",
+                            width: 150
+                        },
+                        {
+                            field: "Nickname",
+                            title: "Nickname",
+                            width: 150
+                        },
+                        {
+                            field: "",
+                            title: "",
+                            width: 150,
+                            template: function () {
+                                return "<a view-sample class='k-button'>View</a>";
+                            }
+                        },
+                    ],
+                });
+
+
+            })
+    </script>
+    <script src="scripts/tooltipster/tooltipster.bundle.min.js"></script>
+    <script src="scripts/bulma-core/sidebar.js"></script>
+</body>
+
+</html>

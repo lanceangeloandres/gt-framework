@@ -1,0 +1,163 @@
+﻿<script type="text/x-kendo-template" id="advSearchTransferred">
+    <div id="accordionTransferredTab">
+        <div id="_advsearchaccordion" ng-class="{'card-disable': activeTransferred, 'card-not-disabled': !activeTransferred}" class="card card-disable">
+            <div id="_advsearchcard" ng-class="{'card-brand': activeTransferred, 'card-not-brand': !activeTransferred}"
+                 class="card-header card-header-text card-brand"
+                 data-ng-click="activeTransferred = !activeTransferred"
+                 data-background-color="brand"
+                 aria-controls="_advancedSearch3"
+                 aria-expanded="true"
+                 data-target="\#_advancedSearch3"
+                 data-toggle="collapse">
+                <span search-label>Search</span>
+            </div>
+
+            <div id="_advancedSearch3" class="collapse" aria-labelledby="searchTransferred"
+                 data-parent="\#accordionTransferredTab">
+                <div class="card-content">
+                    <div class="columns is-desktop">
+                        <div class="column">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Applicant Name: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input class="k-textbox" ng-model="FilterBy.Transferred_ApplicantName"
+                                                       style="width: 100%;" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Type: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-drop-down-list
+                                                       id="ddlTransferTypeFilter"
+                                                       ng-model="FilterBy.Transferred_TransferType"
+                                                       k-options="optTransferType"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Employee Code: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input class="k-textbox" ng-model="FilterBy.Transferred_EmployeeCode"
+                                                       style="width: 100%;" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Employee Status: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-drop-down-list
+                                                       id="ddlEmployeeStatusFilter"
+                                                       ng-model="FilterBy.Transferred_EmployeeStatus"
+                                                       k-options="optEmpStatus"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Transferred Date From: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-date-picker
+                                                       k-ng-model="FilterBy.Transferred_TransferredDateFrom"
+                                                       k-options="optDatePicker"
+                                                       type="date"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Transferred Date To: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-date-picker
+                                                       k-ng-model="FilterBy.Transferred_TransferredDateTo"
+                                                       k-options="optDatePicker"
+                                                       type="date"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field is-grouped is-grouped-right">
+                                <p class="control">
+                                    <button type="button"
+                                            class="k-button"
+                                            ng-click="Transferred_filterApp()">
+                                        Search
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,117 @@
+﻿<script type="text/x-kendo-template" id="grdHiringEditor">
+    <div class="k-edit-form-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Hiring Stage Name:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <input class="k-textbox" style="width: 100%;" ng-model="dataItem.Name" ng-required="true" />
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Description:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="k-input k-textbox" name="description" data-bind="value:Description" style="width: 100%; height: 8em;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="form-check form-check-inline">
+                            <div class="custom-control custom-checkbox">
+                                <input id="InActiveEditor" ng-model="dataItem.InActive" type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label has-text-weight-semibold" for="InActiveEditor">
+                                    Inactive
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="form-check form-check-inline">
+                            <div class="custom-control custom-checkbox">
+                                <input id="IsIsDefaultEditor" ng-model="dataItem.IsDefault" type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label has-text-weight-semibold" for="IsIsDefaultEditor">
+                                    Default
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="form-check form-check-inline">
+                            <div class="custom-control custom-checkbox">
+                                <input id="IsForOnboardingChecklistEditor" ng-model="dataItem.IsForOnboardingChecklist" type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label has-text-weight-semibold" for="IsForOnboardingChecklistEditor">
+                                    Onboarding Checklist
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="form-check form-check-inline">
+                            <div class="custom-control custom-checkbox">
+                                <input id="IsTransferredEditor" ng-model="dataItem.IsTransferred" type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label has-text-weight-semibold" for="IsTransferredEditor">
+                                    Transferred to HRMS
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="grdHiringStageExcludeTabAccess" ng-show="dataItem.IsTransferred"></div>
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="form-check form-check-inline">
+                            <div class="custom-control custom-checkbox">
+                                <input id="IsForHiredDateEditor" ng-model="dataItem.IsForHiredDate" type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label has-text-weight-semibold" for="IsForHiredDateEditor">
+                                    Display Hired Date
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="form-check form-check-inline">
+                            <div class="custom-control custom-checkbox">
+                                <input id="IsWithAssignedEmpEditor" ng-model="dataItem.IsWithAssignedEmp" type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label has-text-weight-semibold" for="IsWithAssignedEmpEditor">
+                                    Display Employee Selection
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div kendo-grid="grdAssignedEmp" id="grdAssignedEmp" k-options="optGrdAssignedEmp" ng-show="dataItem.IsWithAssignedEmp"></div>
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="form-check form-check-inline">
+                            <div class="custom-control custom-checkbox">
+                                <input id="IsForDashboardEditor" ng-model="dataItem.IsForDashboard" type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label has-text-weight-semibold" for="IsForDashboardEditor">
+                                    Display on Dashboard
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="grdStatus" ng-hide="dataItem.IsTransferred"></div>
+            </div>
+        </div>
+    </div>
+</script>

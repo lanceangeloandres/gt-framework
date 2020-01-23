@@ -1,0 +1,194 @@
+﻿<script type="text/x-kendo-template" id="grdApplicantInterviewEditor">
+    <div class="k-edit-form-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="columns">
+                    <div class="column">
+                        <div class="field is-vertical">
+                            <div class="field-label is-normal">
+                                <label class="label">Interview Type:</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <!--<input kendo-drop-down-list
+                                           id="ddlExamType"
+                                           k-options="optExamType"
+                                           style="width: 100%;"
+                                           k-ng-model="dataItem.ExamType"
+                                           ng-required="true" />-->
+                                    <input style="width:100%;"
+                                           id="ddlInterviewType"
+                                           kendo-drop-down-list="optInterviewType"
+                                           data-bind="value: InterviewType"
+                                           name="ddlInterviewType"
+                                           ng-required="true"
+                                           k-options="optInterviewType" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-vertical">
+                            <div class="field-label is-normal">
+                                <label class="label">Interview Status:</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <!--<input kendo-drop-down-list
+                                           id="ddlExamStatus"
+                                           k-options="optExamStatus"
+                                           style="width: 100%;"
+                                           k-ng-model="dataItem.ExamStatus"
+                                           ng-required="true" />-->
+                                    <input style="width:100%;"
+                                           id="ddlInterviewStatus"
+                                           kendo-drop-down-list="optInterviewStatus"
+                                           data-bind="value: InterviewStatus"
+                                           name="ddlInterviewStatus"
+                                           ng-required="true"
+                                           k-options="optInterviewStatus" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field is-vertical">
+                            <div class="field-label is-normal">
+                                <label class="label">
+                                    <span class="has-text-weight-semibold">Schedule Date: </span>
+                                </label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input style="width:100%;"
+                                               name="ScheduleDate"
+                                               placeholder="Please Select"
+                                               kendo-date-picker
+                                               k-ng-model="dataItem.ScheduleDate"
+                                               k-options="optScheduleDate"
+                                               ng-required="true" /><!--min-date="{{ todayDateIncreBy1 }}"-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-vertical">
+                            <div class="field-label is-normal">
+                                <label class="label">
+                                    <span class="has-text-weight-semibold">Schedule Time: </span>
+                                </label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input style="width:100%;"
+                                               name="ScheduleTime"
+                                               placeholder="Please Select"
+                                               kendo-timepicker
+                                               data-bind="value: ScheduleTime"
+                                               k-options="optScheduleTime"
+                                               ng-required="true" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="field is-vertical">
+                    <div class="field-label is-normal">
+                        <label class="label">Interviewer:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <input style="width:100%;"
+                                   id="ddlInterviewer"
+                                   kendo-drop-down-list="optDivHead"
+                                   data-bind="value: InterviewerEmp"
+                                   name="ddlInterviewer"
+                                   ng-required="true"
+                                   k-options="optInterviewer" />
+                        </div>
+                    </div>
+                </div>-->
+                <div class="field is-vertical" ng-show="isHideApprovalStat">
+                    <div class="field-label is-normal">
+                        <label class="label">Approval Status:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <input style="width:100%;"
+                                   id="ddlApprovalStat"
+                                   kendo-drop-down-list="optApprovalStat"
+                                   k-ng-model="dataItem.ApprovalStatus"
+                                   ng-required="isHideApprovalStat"
+                                   k-options="optApprovalStat" />
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-vertical">
+                    <div class="field-label is-normal">
+                        <label class="label">
+                            <span class="has-text-weight-semibold">
+                                Meeting Room:
+                            </span>
+                        </label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <input style="width:100%;"
+                                id="ddlMeetingRoom"
+                                kendo-drop-down-list="optMeetingRoom"
+                                data-bind="value: MeetingRoom"
+                                name="ddlMeetingRoom"
+                                ng-required="true"
+                                k-options="optMeetingRoom" />
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-vertical">
+                    <div class="field-label is-normal">
+                        <label class="label">
+                            <span class="has-text-weight-semibold">
+                                Interviewer:
+                            </span>
+                        </label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <select 
+                                    name="employee"
+                                    kendo-multi-select
+                                    k-options="employeeOptions"
+                                    data-bind="value: Interviewer"
+                                    required
+                                    style="width: 100%"></select> <!--k-ng-model="dataItem.ReplacedStaff"-->
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-vertical">
+                    <div class="field-label is-normal">
+                        <label class="label">Remarks:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="k-input k-textbox" name="Remarks" data-bind="value:Remarks" style="width: 100%; height: 8em;"></textarea><!--ng-model="dataItem.Description"-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="form-check form-check-inline">
+                            <div class="custom-control custom-checkbox">
+                                <input id="IsCancelEditor" ng-model="dataItem.IsCancel" type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label has-text-weight-semibold" for="IsCancelEditor">
+                                    Is Cancel
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,66 @@
+﻿<script type="text/x-kendo-template" id="grdTeamMemberEditor">
+    <div class="k-edit-form-container">
+        <div adv-search-team-members></div>
+        <div class="card">
+            <div class="card-content">
+                
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Team Name:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <input class="k-textbox" style="width: 100%;" ng-model="dataItem.Name" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Role:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input kendo-drop-down-list
+                                       id="ddlRole"
+                                       ng-model="dataItem.UserRoleType"
+                                       k-options="optRole"
+                                       style="width: 100%"
+                                       required />    <!-- data-bind="value: UserRoleType"-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal" ng-hide="dataItem.UserRoleType==='Admin'">
+                    <div class="field-body">
+                        <div class="form-check form-check-inline">
+                            <div class="custom-control custom-checkbox">
+                                <input id="InActiveEditor" ng-model="dataItem.InActive" type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label has-text-weight-semibold" for="InActiveEditor">
+                                    Inactive
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column is-6 offset-6">
+                        <div class="field">
+                            <div class="control">
+                                <input id="search" autocomplete="off" style="width:100%;" placeholder="Search Selected Employee" class="k-textbox" style="width: 100%" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns is-multiline">
+                    <div class="column is-6">
+                        <select id="optional"></select>
+                    </div>
+                    <div class="column is-6">
+                        <select id="selected" ng-model="dataItem.TeamMemberEmpScope"></select>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+</script>

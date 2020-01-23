@@ -1,0 +1,54 @@
+﻿<script type="text/x-kendo-template" id="grdExamStatusEditor">
+    <div class="k-edit-form-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Exam Status Name:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <input class="k-textbox" style="width: 100%;" ng-model="dataItem.Name" ng-required="true" />
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Description:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="k-input k-textbox" name="description" data-bind="value:Description" style="width: 100%; height: 8em;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="form-check form-check-inline">
+                            <div class="custom-control custom-checkbox">
+                                <input id="InActiveEditor" ng-model="dataItem.InActive" type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label has-text-weight-semibold" for="InActiveEditor">
+                                    Inactive
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-body">
+                        <div class="form-check form-check-inline">
+                            <div class="custom-control custom-checkbox">
+                                <input id="IsForDashboardEditor" ng-model="dataItem.IsForDashboard" type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label has-text-weight-semibold" for="IsForDashboardEditor">
+                                    Display for Dashboard
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

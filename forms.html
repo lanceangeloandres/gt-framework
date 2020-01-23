@@ -1,0 +1,308 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Forms</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Framework CSS Files -->
+    <link rel="stylesheet" href="content/assets/css/bulma.css">
+    <link rel="stylesheet" href="content/assets/css/materialize/1.0.0/material-dashboard.css">
+    <link rel="stylesheet" href="content/assets/css/sidebar/sidebar.css">
+    <link rel="stylesheet" href="content/assets/css/icons.min.css">
+
+   <!-- KendoUI Stylesheet and Override -->
+    <link rel="stylesheet" href="content/assets/css/kendo/2019.3.1023/kendo.material-v2.min.css" />
+    <link rel="stylesheet" href="content/assets/css/kendo-override.css">
+
+    <!-- Project Override Files -->
+    <link rel="stylesheet" href="content/assets/css/framework/1.0.0/framework-override.css">
+    <link rel="stylesheet" href="content/assets/css/main.css">
+
+    <!-- KendoUI JS Files -->
+    <script src="scripts/kendo/2019.3.1023/jquery.min.js"></script>
+    <script src="scripts/angular/1.4.8/angular.min.js"></script>
+    <script src="scripts/angular/1.4.8/angular-route.min.js"></script>
+    <script src="scripts/angular/1.4.8/angular-sanitize.min.js"></script>
+    <script src="scripts/kendo/2019.3.1023/kendo.all.min.js"></script>
+    
+
+</head>
+
+<body>
+    <div ng-app="Sample">
+        <div ng-controller="sampleCtrl">
+            <div class="pageloader"></div>
+            <div class="infraloader is-active"></div>
+
+            <!-- Main sidebar menu -->
+            <nav class="main-menu">
+                <div class="main-menu-inner">
+                    <ul>
+                        <li data-child-menu="sample-menu" data-tooltipster='{"side":"right","animation":"slide"}'
+                            title="Sample" class="tooltipster tooltipstered side-icon side-icon-custom">
+                            <i class="im im-icon-Find-User"></i>
+                        </li>
+                        <li data-child-menu="sample2-menu" data-tooltipster='{"side":"right","animation":"slide"}' title="Sample 2"
+                            class="tooltipster tooltipstered side-icon side-icon-custom">
+                            <i class="sl sl-icon-settings"></i>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <nav class="child-menu">
+                <div class="child-menu-inner">
+                    <ul>
+                        <li class="child-header">
+                            <!-- <div class="sidebar-title">P&A Grant Thorton</div> -->
+                            <a id="close-child-menu" style="z-index: 100;" href="#" class="menu-wrapper">
+                                <span class="icon-box-toggle ef-4">
+                                    <span class="rotate">
+                                        <i class="icon-line-top"></i>
+                                        <i class="icon-line-center"></i>
+                                        <i class="icon-line-bottom"></i>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul id="sample-menu" class="sidebar-menu is-active animated preFadeInRight fadeInRight">
+                        <div class="custom-sidebar-title">
+                            Sample
+                        </div>
+                        <li class="">
+                            <a class="parent-link" href="#">
+                                <span class="material-icons">dashboard</span>
+                                Sample
+                            </a>
+                        </li>
+                    </ul>
+                    <ul id="sample2-menu" class="sidebar-menu animated preFadeInRight fadeInRight">
+                        <div class="custom-sidebar-title">
+                            Sample 2
+                        </div>
+                        <li class="">
+                            <a class="parent-link" href="#">
+                                <span class="material-icons">settings</span>
+                                Sample
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+            <!-- Main dashboard container -->
+            <div id="dashboard-wrapper">
+                <div class="dashboard-wrapper">
+                    <div id="main-dashboard" class="section-wrapper">
+                        <div class="container is-fluid main-content">
+                            <div class="columns">
+                                <div class="column">
+                                    <h3>Forms and Editors</h3>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="card">
+                                        <div class="card-header card-header-text" data-background-color="brand">
+                                            Sample
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="columns">
+                                                <div class="column">
+                                                    <div class="field">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Textbox: </span>
+                                                        </label>
+                                                        <div class="control">
+                                                            <input class="k-textbox" style="width: 100%;" type="text" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="field">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Textarea: </span>
+                                                        </label>
+                                                        <div class="control">
+                                                            <textarea class="k-textbox" style="width: 100%; height: 5em;" type="text"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Dropdown: </span>
+                                                        </label>
+                                                        <div class="control">
+                                                            <select kendo-drop-down-list style="width: 100%" k-options="optDropdownList"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Editor: </span>
+                                                        </label>
+                                                        <div class="control">
+                                                            <textarea kendo-editor></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <div class="field">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Start Date:</span>
+                                                        </label>
+                                                        <div class="control">
+                                                            <input id="start" title="datetimepicker" style="width: 100%;" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="field">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">End Date:</span>
+                                                        </label>
+                                                        <div class="control">
+                                                            <input id="end" title="datetimepicker" style="width: 100%;" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="field">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Checkboxes: </span>
+                                                        </label>
+                                                        <div class="control">
+                                                            <ul>
+                                                                <li>
+                                                                    <input type="checkbox" id="chk1" class="k-checkbox" checked="checked">
+                                                                    <label class="k-checkbox-label" for="chk1">Sample</label>
+                                                                </li>
+                                                                <li>
+                                                                    <input type="checkbox" id="chk2" class="k-checkbox" checked="checked">
+                                                                    <label class="k-checkbox-label" for="chk2">Sample 2</label>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Multiselect: </span>
+                                                        </label>
+                                                        <div class="control">
+                                                            <select kendo-multi-select k-options="optMultiselect"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Main dashboard container -->
+
+            
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        angular.module("Sample", ["kendo.directives"])
+            .controller("sampleCtrl", function ($scope) {
+
+                angular.element(function () {
+                    // Pageloader 2.0 
+                    if ($('.pageloader').length) {
+
+                        $('.pageloader').toggleClass('is-active');
+
+                        $(window).on('load', function () {
+                            var pageloaderTimeout = setTimeout(function () {
+                                $('.pageloader').toggleClass('is-active');
+                                $('.infraloader').toggleClass('is-active')
+                                clearTimeout(pageloaderTimeout);
+                            }, 1500);
+                        })
+                    }
+                });
+
+                $scope.optDropdownList = {
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    filter: "contains",
+                    dataSource: [
+                        { text: "Sample 1", value: "1" },
+                        { text: "Sample 2", value: "2" }
+                    ],
+                    index: 0
+                }
+                
+                function startChange() {
+                    var startDate = start.value(),
+                        endDate = end.value();
+
+                    if (startDate) {
+                        startDate = new Date(startDate);
+                        startDate.setDate(startDate.getDate());
+                        end.min(startDate);
+                    } else if (endDate) {
+                        start.max(new Date(endDate));
+                    } else {
+                        endDate = new Date();
+                        start.max(endDate);
+                        end.min(endDate);
+                    }
+                }
+
+                function endChange() {
+                    var endDate = end.value(),
+                        startDate = start.value();
+
+                    if (endDate) {
+                        endDate = new Date(endDate);
+                        endDate.setDate(endDate.getDate());
+                        start.max(endDate);
+                    } else if (startDate) {
+                        end.min(new Date(startDate));
+                    } else {
+                        endDate = new Date();
+                        start.max(endDate);
+                        end.min(endDate);
+                    }
+                }
+
+                var today = kendo.date.today();
+
+                var start = $("#start").kendoDateTimePicker({
+                    value: today,
+                    change: startChange,
+                    parseFormats: ["MM/dd/yyyy"]
+                }).data("kendoDateTimePicker");
+
+                var end = $("#end").kendoDateTimePicker({
+                    value: today,
+                    change: endChange,
+                    parseFormats: ["MM/dd/yyyy"]
+                }).data("kendoDateTimePicker");
+
+                start.max(end.value());
+                end.min(start.value());
+
+                $scope.optMultiselect = {
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    valuePrimitive: true,
+                    autoBind: false,
+                    dataSource: [
+                        { text: "Sample 1", value: "1" },
+                        { text: "Sample 2", value: "2" }
+                    ],
+                };
+
+            })
+    </script>
+    <script src="scripts/tooltipster/tooltipster.bundle.min.js"></script>
+    <script src="scripts/bulma-core/sidebar.js"></script>
+</body>
+
+</html>

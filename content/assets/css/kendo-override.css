@@ -1,0 +1,601 @@
+/* 
+* KendoUI Override CSS
+* Version 3.0.0
+* To be used for overriding KendoUI's Material Theme 2019 R3
+* kendo.material-v2.min.css
+*/
+
+/* GT Font Override */
+.k-tabstrip-top > .k-tabstrip-items .k-item,
+.k-grid-header th.k-header,
+.k-grid td,
+.k-grid-content,
+.k-grid-header .k-header,
+.k-grid-header .k-header .k-link,
+.k-grid-header .k-link,
+.k-grid-header .k-link:link,
+.k-pager-info,
+.k-scheduler-agendaview .k-scheduler-datecolumn,
+.k-scheduler-header,
+.k-calendar,
+.k-grid-content table, .k-grid-content-locked table,
+.k-dropdown .k-input,
+.k-list-optionlabel.k-state-selected.k-state-focused,
+.k-popup .k-list .k-item,
+.k-popup > .k-group-header, .k-popup > .k-virtual-wrap > .k-group-header,
+.k-tabstrip-items .k-item>.k-link,
+.k-pager-sizes, .k-pager-wrap .k-link,
+.k-pager-numbers > li > .k-state-selected,
+.k-window-title,
+.k-button,
+.k-checkbox-label, 
+.k-radio-label,
+.k-list-optionlabel,
+.k-panelbar .k-group>.k-item>.k-link {
+    font-family: var(--GTRegular) !important;
+}
+
+/* For every Kendo Content */
+.k-content {
+    background: var(--GTtransparent);
+}
+
+/* Grid */
+
+/* 
+* K-grd alt 
+* Apply a background-color to enable striped theme for all grids
+*/
+.k-grid tr.k-alt {
+    background-color: #f5f5f5;
+}
+
+.k-grid td, .k-grid th {
+    text-overflow: inherit;
+}
+
+.k-grid tr:hover {
+    background-color: var(--GTtransparent);
+}
+
+.k-grid tr.k-state-selected {
+    /* background: var(--GTgridrowcolor); */
+    background: rgb(79,45,127,0.2);
+    color: var(--GTcolor);
+    font-weight: 600;
+}
+
+.k-grid tr.k-state-disabled {
+    background: var(--GTwhitegray);
+}
+
+.k-grid-content .k-state-selected {
+    /* color: inherit !important; */
+    background-image: none !important;
+    /* border: 0; */
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.k-grid-norecords-template {
+    text-align: center;
+    padding: 0;
+    margin: 1em auto;
+    color: var(--GTcolor);
+    font-weight: 600;
+    border: 0;
+}
+.k-grid-content > .k-grid-norecords > .k-grid-norecords-template {
+    border: 0;
+    color: var(--GTcolor);
+}
+
+.k-grid-header .k-header {
+    color: var(--GTcolor);
+}
+
+.k-grid td {
+    vertical-align: middle;
+    line-height: 19px;
+    /* padding: 10px; */
+    /* text-align: center; */
+    /* padding-top: 1em;
+    padding-right: 0;
+    padding-bottom: 1em;
+    padding-left: 1.3em; */
+}
+
+.k-grid tr td {
+    border: 0;
+}
+
+.k-grid-header,
+.k-pager-wrap {
+    background-color: var(--GTtransparent) !important;
+    border: 0;
+}
+
+.k-grid-header-wrap {
+    border-style: none;
+}
+
+.k-grid {
+    border: none !important
+}
+
+/* .k-grid a {
+    color: var(--GTcolor) !important;
+    text-decoration: none;
+} */
+
+.k-grid-toolbar > .k-button {
+    color: var(--GTcolor);
+}
+
+.k-grid-header th.k-header {
+    vertical-align: middle !important;
+    white-space: normal !important;
+    letter-spacing: normal;
+    line-height: 1.4em;
+    font-weight: 600;
+    background: transparent;
+}
+
+.k-grid-add-row, .k-grid-footer, .k-grid-header, .k-grid-toolbar, .k-grouping-header {
+    color: rgba(0,0,0,.54);
+    background-color: rgba(0,0,0,0);
+    border: 0;
+}
+
+.k-grid-header th.k-header > .k-link {
+    /* font-weight: 600 !important;
+    font-size: 0.9rem !important; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.k-grid-header .k-header, 
+.k-grid-header .k-header .k-link, 
+.k-grid-header .k-link, 
+.k-grid-header .k-link:link, 
+.k-pager-info, 
+.k-scheduler-agendaview .k-scheduler-datecolumn, 
+.k-scheduler-header {
+    color: var(--GTcolor);
+}
+
+.k-grid-header .k-i-sort-asc-sm, .k-grid-header .k-i-sort-desc-sm, .k-grid-header .k-sort-order {
+    color: var(--GTcolor);
+    opacity: 1;
+    margin-bottom: -1px;
+}
+
+.k-state-focused, td.k-state-focused {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.k-grid tr.k-state-selected:hover td {
+    background-color: transparent;
+}
+
+.k-grid-header .k-link .k-icon.k-i-sort-asc-sm, .k-grid-header .k-link .k-icon.k-i-sort-desc-sm {
+    color: var(--GTcolor);
+    margin-top: 1px;
+    vertical-align: text-top;
+}
+
+.k-grid-lockedcolumns .k-grid-content, .k-grid-lockedcolumns .k-grid-header-wrap {
+    box-shadow: none;
+}
+
+/* Kendo Button */
+.k-button {
+    border-radius: 2px;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    font-size: 14px;
+    line-height: 1.5em;
+    font-family: inherit;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    -webkit-appearance: none;
+    position: relative;
+}
+
+.k-button-icon {
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.k-grid a:hover {
+    font-weight: 600;
+    color: var(--GTcolor) !important;
+}
+
+.k-primary.k-button {
+    border-color: var(--GTcolor);
+    color: #fff;
+    background-color: var(--GTcolor);
+}
+
+.k-action-buttons .k-primary.k-button, .k-action-buttons .k-primary.k-button:hover, .k-action-buttons .k-primary.k-state-hover.k-button, .k-button-flat.k-primary, .k-button-flat.k-primary.k-state-hover, .k-button-flat.k-primary:hover, .k-button.k-outline.k-primary, .k-button.k-outline.k-primary.k-state-hover, .k-button.k-outline.k-primary:hover, .k-calendar-header .k-primary.k-button, .k-calendar-header .k-primary.k-button:hover, .k-calendar-header .k-primary.k-state-hover.k-button, .k-dialog-button-group .k-primary.k-button, .k-dialog-button-group .k-primary.k-button:hover, .k-dialog-button-group .k-primary.k-state-hover.k-button, .k-dialog-buttongroup .k-primary.k-button, .k-dialog-buttongroup .k-primary.k-button:hover, .k-dialog-buttongroup .k-primary.k-state-hover.k-button, .k-edit-buttons .k-primary.k-button, .k-edit-buttons .k-primary.k-button:hover, .k-edit-buttons .k-primary.k-state-hover.k-button, .k-edit-field .k-primary.k-button, .k-edit-field .k-primary.k-button:hover, .k-edit-field .k-primary.k-state-hover.k-button, .k-editor-toolbar .k-primary.k-dropdown-wrap, .k-editor-toolbar .k-primary.k-dropdown-wrap:hover, .k-editor-toolbar .k-primary.k-picker-wrap, .k-editor-toolbar .k-primary.k-picker-wrap:hover, .k-editor-toolbar .k-primary.k-state-hover.k-dropdown-wrap, .k-editor-toolbar .k-primary.k-state-hover.k-picker-wrap, .k-editor-toolbar a.k-primary.k-state-hover.k-tool, .k-editor-toolbar a.k-primary.k-tool, .k-editor-toolbar a.k-primary.k-tool:hover, .k-gantt-toolbar .k-primary.k-button, .k-gantt-toolbar .k-primary.k-button:hover, .k-gantt-toolbar .k-primary.k-state-hover.k-button, .k-gantt-views li a.k-primary, .k-gantt-views li a.k-primary.k-state-hover, .k-gantt-views li a.k-primary:hover, .k-primary.k-button.k-bare, .k-primary.k-button.k-bare:hover, .k-primary.k-button.k-flat, .k-primary.k-button.k-flat:hover, .k-primary.k-state-hover.k-button.k-bare, .k-primary.k-state-hover.k-button.k-flat, .k-scheduler-footer li a.k-primary, .k-scheduler-footer li a.k-primary.k-state-hover, .k-scheduler-footer li a.k-primary:hover, .k-scheduler-toolbar li a.k-primary, .k-scheduler-toolbar li a.k-primary.k-state-hover, .k-scheduler-toolbar li a.k-primary:hover, .k-spreadsheet-popup .k-primary.k-button, .k-spreadsheet-popup .k-primary.k-button:hover, .k-spreadsheet-popup .k-primary.k-state-hover.k-button, .k-spreadsheet-quick-access-toolbar .k-primary.k-button, .k-spreadsheet-quick-access-toolbar .k-primary.k-button:hover, .k-spreadsheet-quick-access-toolbar .k-primary.k-state-hover.k-button, .k-spreadsheet-sheets-bar .k-primary.k-button, .k-spreadsheet-sheets-bar .k-primary.k-button:hover, .k-spreadsheet-sheets-bar .k-primary.k-state-hover.k-button, .k-toolbar .k-split-button.k-state-disabled .k-primary.k-button, .k-toolbar .k-split-button.k-state-disabled .k-primary.k-button:hover, .k-toolbar .k-split-button.k-state-disabled .k-primary.k-state-hover.k-button {
+    color: var(--GTcolor);
+}
+
+.k-edit-buttons {
+    border: 0;
+}
+
+/* Window */
+.k-window-title {
+    margin: -.15em 0;
+    font-size: 20px;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: default;
+    -ms-flex: 1;
+    flex: 1;
+    color: var(--GTcolor);
+    font-weight: 600;
+}
+
+/* Tabstrip */
+.k-tabstrip-items .k-item.k-state-default {
+    font-weight: 600;
+}
+.k-tabstrip-items .k-item.k-state-active::after {
+    border-color: var(--GTsubcolor);
+}
+.k-tabstrip-items .k-item.k-state-active, .k-tabstrip-items .k-item.k-state-selected {
+    color: var(--GTcolor);
+    font-weight: 600;
+}
+
+/* Input */
+.k-input.k-textbox.k-state-focus, .k-input.k-textbox:focus, .k-textarea.k-state-focus, .k-textarea:focus, .k-textbox.k-state-focus, .k-textbox:focus {
+    border-color: var(--GTcolor);
+}
+
+.k-input.k-textbox, .k-textarea, .k-textbox {
+    border-width: 0 0 2px;
+}
+
+/* Checkbox */
+.k-checkbox:checked+.k-checkbox-label::before {
+    background-color: var(--GTcolor);
+    border-color: var(--GTcolor);
+}
+
+.k-checkbox:checked+.k-checkbox-label::after, .k-checkbox:indeterminate+.k-checkbox-label::after {
+    background-color: var(--GTcolor);
+    border-color: var(--GTcolor);
+}
+
+/* Calendar */
+.k-calendar .k-state-selected.k-state-focused .k-link {
+    border-color: var(--GTcolor);
+    color: #fff;
+    background-color: var(--GTcolor);
+}
+
+.k-calendar .k-state-selected .k-link {
+    border-color: var(--GTsubcolor);
+    color: #fff;
+    background-color: var(--GTsubcolor);
+}
+
+.k-calendar .k-footer .k-nav-today {
+    color: var(--GTsubcolor);
+}
+
+.k-calendar .k-content th {
+    color: var(--GTcolor);
+}
+
+/* Pager */
+.k-pager-numbers .k-state-selected {
+    color: #fff;
+    background-color: var(--GTcolor);
+}
+
+/* Dropdown */
+.k-autocomplete.k-state-focused,
+.k-dateinput-wrap.k-state-focused,
+.k-dropdown-wrap.k-state-focused,
+.k-multiselect-wrap.k-state-focused,
+.k-numeric-wrap.k-state-focused,
+.k-picker-wrap.k-state-focused,
+.k-state-focused>.k-autocomplete,
+.k-state-focused>.k-dateinput-wrap,
+.k-state-focused>.k-dropdown-wrap,
+.k-state-focused>.k-multiselect-wrap,
+.k-state-focused>.k-numeric-wrap,
+.k-state-focused>.k-picker-wrap {
+    border-color: var(--GTcolor);
+}
+
+.k-multiselect-wrap .k-button.k-state-hover, .k-multiselect-wrap .k-button:hover {
+    color: #fff;
+    background-color: var(--GTcolor);
+}
+
+.k-autocomplete, .k-dateinput-wrap, .k-dropdown-wrap, .k-multiselect-wrap, .k-numeric-wrap, .k-picker-wrap {
+    border-width: 0 0 2px;
+}
+
+.k-edit-form-container {
+    width: 100%;
+    min-width: 100%;
+    border-color: inherit;
+    position: relative;
+}
+
+/* Kendo Editor */
+.k-editor p {
+    margin: 1em 0px;
+}
+
+.k-editor *[contenteditable='false'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.k-editor .selected-immutable {
+    background: rgba(128, 128, 128, 0.1);
+}
+
+.k-editor-widget.k-invalid {
+    border-color: rgba(243,23,0,.5);
+    border-width: 0.25em;
+}
+
+/* Custom editor height */
+table.override-editor {
+    height: 50px;
+}
+
+table.override-editor iframe.k-content {
+    height: 50px;
+}
+
+/* Custom for Dropdown Image - Yel Added This */
+.dropdown-photo {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: 50px 50px;
+    background-position: center center;
+    vertical-align: middle;
+    line-height: 50px;
+    box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.dropdown-name {
+    /*display: inline-block;
+    vertical-align: middle;
+    line-height: 32px;
+    padding-left: 3px;*/
+    margin-top: 20px;
+}
+
+/* Custom for List View - Yel Added This */
+
+
+/* Kendo Validator */
+.k-tooltip-validation {
+    margin: .5em 0 0;
+    position: static;
+    border-width: 0;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    align-items: center;
+    /* background-color: var(--GTred); */
+    background-color: transparent;
+    color: var(--GTred);
+    display: none !important;
+}
+
+.k-tooltip-validation>.k-icon {
+    display: none;
+}
+
+/* Kendo Validator Complete Override for Invalid Classes */
+.k-input.k-textbox.k-invalid, 
+.k-input.k-textbox.k-state-invalid, 
+.k-input.k-textbox.ng-invalid.ng-dirty, 
+.k-input.k-textbox.ng-invalid-required, 
+.k-input.k-textbox.ng-invalid.ng-touched, 
+.k-textarea.k-invalid, 
+.k-textarea.k-state-invalid, 
+.k-textarea.ng-invalid.ng-dirty, 
+.k-textarea.ng-invalid.ng-touched, 
+.k-textbox.k-invalid, 
+.k-textbox.k-state-invalid, 
+.k-textbox.ng-invalid.ng-dirty, 
+.k-textbox.ng-invalid.ng-touched
+.k-autocomplete.k-invalid, 
+.k-autocomplete.k-invalid:hover, 
+.k-autocomplete.k-state-invalid, 
+.k-autocomplete.ng-invalid.ng-dirty, 
+.k-autocomplete.ng-invalid.ng-touched, 
+.k-dateinput-wrap.k-invalid, 
+.k-dateinput-wrap.k-invalid:hover, 
+.k-dateinput-wrap.k-state-invalid, 
+.k-dateinput-wrap.ng-invalid.ng-dirty, 
+.k-dateinput-wrap.ng-invalid.ng-touched, 
+.k-dropdown-wrap.k-invalid, 
+.k-dropdown-wrap.k-invalid:hover, 
+.k-dropdown-wrap.k-state-invalid, 
+.k-dropdown-wrap.ng-invalid.ng-dirty, 
+.k-dropdown-wrap.ng-invalid.ng-touched, 
+.k-multiselect.k-invalid > .k-multiselect-wrap.k-floatwrap,
+.k-multiselect-wrap.k-invalid:hover, 
+.k-multiselect-wrap.k-state-invalid, 
+.k-multiselect-wrap.ng-invalid.ng-dirty, 
+.k-multiselect-wrap.ng-invalid.ng-touched, 
+.k-numeric-wrap.k-invalid, 
+.k-numeric-wrap.k-invalid:hover, 
+.k-numeric-wrap.k-state-invalid, 
+.k-numeric-wrap.ng-invalid.ng-dirty, 
+.k-numeric-wrap.ng-invalid.ng-touched, 
+.k-picker-wrap.k-invalid, 
+.k-picker-wrap.k-invalid:hover, 
+.k-picker-wrap.k-state-invalid, 
+.k-picker-wrap.ng-invalid.ng-dirty, 
+.k-picker-wrap.ng-invalid.ng-touched {
+    border-color: var(--GTred);
+}
+
+.k-input.k-textbox.ng-invalid.ng-pristine {
+    border-color: inherit !important;
+}
+
+/*.product-view {
+    float: left;
+    width: 50%;
+    height: 300px;
+    box-sizing: border-box;
+    border-top: 0;
+    position: relative;
+}
+
+.product-view:nth-child(even) {
+    border-left-width: 0;
+}
+
+.product-view dl {
+    margin: 10px 10px 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.product-view dt, dd {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    line-height: 24px;
+    font-size: 18px;
+}
+
+.product-view dt {
+    font-size: 11px;
+    height: 16px;
+    line-height: 16px;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+.product-view dd {
+    height: 46px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.product-view dd .k-widget,
+.product-view dd .k-textbox {
+    font-size: 14px;
+}
+
+#example .k-listview {
+    border-width: 1px 0 0;
+    padding: 0;
+    overflow: hidden;
+    min-height: 298px;
+}
+
+.edit-buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: right;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.k-pager-wrap {
+    border-top: 0;
+}
+
+span.k-invalid-msg {
+    position: absolute;
+    margin-left: 6px;
+}
+
+.k-add-button {
+    margin-bottom: 2em;
+}
+
+@media only screen and (max-width : 620px) {
+
+.product-view {
+    width: 100%;
+}
+
+.product-view:nth-child(even) {
+    border-left-width: 1px;
+}
+}*/
+
+/* List View */
+.k-widget.k-listview {
+    border: 0;
+    /* display: block; */
+}
+
+.k-listbox {
+    /* width: 12.4em; */
+    width: 100%;
+    height: 300px;
+    vertical-align: top;
+    background-color: transparent;
+    border-width: 0;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+/* K-Panelbar */
+.k-panelbar>.k-item>.k-link {
+    font-family: var(--GTRegular);
+}
+
+.k-panelbar>.k-item>.k-link.k-state-selected,
+.k-panelbar .k-group>.k-item>.k-link.k-state-selected {
+    color: var(--GTcolor);
+    font-weight: 600;
+}
+
+/* Kendo Timeline */    
+.k-timeline .k-timeline-flag {
+    background-color: var(--GTcolor);
+    color: #fff;
+}
+
+.k-timeline .k-timeline-circle {
+    background-color: var(--GTcolor);
+}

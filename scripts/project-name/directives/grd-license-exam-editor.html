@@ -1,0 +1,80 @@
+<script type="text/x-kendo-tmpl" id="licenseExamTemplate">
+    <div edit-template-container>
+        <div class="card">
+            <div class="card-content">
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="field">
+                            <label class="label">License Type</label>
+                            <p class="control">
+                                <input kendo-drop-down-list
+                                       id="ddlLicenseType"
+                                       k-ng-model="dataItem.LicenseType"
+                                       k-options="optLicenseType"
+                                       style="width: 100%;"
+                                       validationMessage="Please select a license type."
+                                       required />
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Exam Rating</label>
+                            <p class="control">
+                                <input data-role="numerictextbox"
+                                       data-spinners="false"
+                                       ng-model="dataItem.ExamRating"
+                                       style="width: 100%;" />
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Exam Date</label>
+                            <p class="control">
+                                <input kendo-date-picker
+                                       k-options="optExamDate"
+                                       k-ng-model="dataItem.ExamDate"
+                                       style="width: 100%;" />
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">License Number</label>
+                            <p class="control">
+                                <input class="k-textbox"
+                                       ng-model="dataItem.LicenseNumber"
+                                       style="width: 100%;"
+                                       required />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <label class="label">Date Released</label>
+                            <p class="control">
+                                <input class="fieldRequired"
+                                       kendo-date-picker
+                                       k-options="optDates"
+                                       k-ng-model="dataItem.DateReleased"
+                                       style="width: 100%;" />
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Expiration Date</label>
+                            <p class="control">
+                                <input kendo-date-picker
+                                       k-options="optDates"
+                                       k-ng-model="dataItem.ExpirationDate"
+                                       style="width: 100%;" />
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Remarks</label>
+                            <p class="control">
+                                <textarea class="k-textbox"
+                                          ng-model="dataItem.Remarks"
+                                          style="width: 100%;"></textarea>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

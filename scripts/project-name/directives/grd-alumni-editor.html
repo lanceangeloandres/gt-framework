@@ -1,0 +1,41 @@
+﻿<script type="text/x-kendo-template" id="grdAlumniEditor">
+    <div class="k-edit-form-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="field is-vertical">
+                    <div class="field-label is-normal">
+                        <label class="label">
+                            <span class="has-text-weight-semibold">Employee: </span>
+                        </label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input kendo-drop-down-list
+                                       id="ddlEmp"
+                                       name="ddlEmp"
+                                       data-bind="value: Emp"                                     
+                                       k-options="optEmp"
+                                       style="width: 100%"
+                                       required="" /> <!--k-ng-model="dataItem.Emp"-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-vertical">
+                    <div class="field-label is-normal">
+                        <label class="label">Remarks:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="k-input k-textbox" name="remarks" data-bind="value:Remarks" style="width: 100%; height: 8em;"></textarea><!--ng-model="dataItem.Description"-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="grdAlumniSocialMedia"></div>
+            </div>
+        </div>
+    </div>
+</script>

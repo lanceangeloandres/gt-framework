@@ -1,0 +1,146 @@
+﻿<script type="text/x-kendo-template" id="advSearchHired">
+    <div id="accordionHiredTab">
+        <div id="_advsearchaccordion" ng-class="{'card-disable': activeHired, 'card-not-disabled': !activeHired}" class="card card-disable">
+            <div id="_advsearchcard" ng-class="{'card-brand': activeHired, 'card-not-brand': !activeHired}"
+                 class="card-header card-header-text card-brand"
+                 data-ng-click="activeHired = !activeHired"
+                 data-background-color="brand"
+                 aria-controls="_advancedSearch2"
+                 aria-expanded="true"
+                 data-target="\#_advancedSearch2"
+                 data-toggle="collapse">
+                <span search-label>Search</span>
+            </div>
+
+            <div id="_advancedSearch2" class="collapse" aria-labelledby="searchHired"
+                 data-parent="\#accordionHiredTab">
+                <div class="card-content">
+                    <div class="columns is-desktop">
+                        <div class="column">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Applicant Name: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input class="k-textbox" ng-model="FilterBy.Hired_ApplicantName"
+                                                       style="width: 100%;" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="columns">
+                                <div class="column">
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="columns is-desktop">
+                        <div class="column">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Applied Date From: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-date-picker
+                                                       k-ng-model="FilterBy.Hired_AppliedDateFrom"
+                                                       k-options="optDatePicker"
+                                                       type="date"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Hired Date From: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-date-picker
+                                                       k-ng-model="FilterBy.Hired_HiredDateFrom"
+                                                       k-options="optDatePicker"
+                                                       type="date"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Applied Date To: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-date-picker
+                                                       k-ng-model="FilterBy.Hired_AppliedDateTo"
+                                                       k-options="optDatePicker"
+                                                       type="date"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Hired Date To: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-date-picker
+                                                       k-ng-model="FilterBy.Hired_HiredDateTo"
+                                                       k-options="optDatePicker"
+                                                       type="date"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field is-grouped is-grouped-right">
+                                <p class="control">
+                                    <button type="button"
+                                            class="k-button"
+                                            ng-click="Hired_filterApp()">
+                                        Search
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

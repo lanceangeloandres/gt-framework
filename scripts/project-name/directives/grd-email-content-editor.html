@@ -1,0 +1,167 @@
+﻿<script type="text/x-kendo-template" id="grdEmailContentEditor">
+    <div class="k-edit-form-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="columns">
+                    <div class="column">
+                        <div class="field is-vertical">
+                            <div class="field-label is-normal">
+                                <label class="label">Name:</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <input class="k-textbox"
+                                           style="width: 100%;"
+                                           ng-model="dataItem.Name"
+                                           ng-required="true" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field is-vertical">
+                            <div class="field-label is-normal">
+                                <label class="label">Type:</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <input kendo-drop-down-list
+                                           id="ddlEmailContentType" 
+                                           k-options="optEmailContentType"
+                                           style="width: 100%;"
+                                           k-ng-model="dataItem.EmailContentType"
+                                           ng-required="true" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field is-vertical">
+                            <div class="field-label is-normal">
+                                <label class="label">Action:</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <input kendo-drop-down-list
+                                        id="ddlEmailContentTypeAction" 
+                                        k-options="optEmailContentTypeAction"
+                                        style="width: 100%;"
+                                        k-ng-model="dataItem.EmailContentTypeAction"
+                                        ng-required="true" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <div class="field is-vertical">
+                            <div class="field-label is-normal">
+                                <label class="label">To:</label>
+                            </div>
+                            <div class="field body">
+                                <div class="field">
+                                    <select 
+                                        name="toEmployee"
+                                        kendo-multi-select
+                                        k-options="optRecipient"
+                                        data-bind="value:Recipient" 
+                                        required
+                                        style="width: 100%"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns" ng-show="IsCarbonCopyVisible">
+                    <div class="column">
+                        <div class="field is-vertical">
+                            <div class="field-label is-normal">
+                                <label class="label" id="carbonCopyLabel">Cc:</label>
+                            </div>
+                            <div class="field body">
+                                <div class="field">
+                                    <select 
+                                        name="ccEmployee"
+                                        kendo-multi-select
+                                        k-options="optRecipient"
+                                        data-bind="value:CarbonCopy" 
+                                        style="width: 100%"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns" ng-show="IsBlindCarbonCopyVisible">
+                    <div class="column">
+                        <div class="field is-vertical">
+                            <div class="field-label is-normal">
+                                <label class="label" id="blindCarbonCopyLabel">Bcc:</label>
+                            </div>
+                            <div class="field body">
+                                <div class="field">
+                                    <select 
+                                        name="bccEmployee"
+                                        kendo-multi-select
+                                        k-options="optRecipient"
+                                        data-bind="value:BlindCarbonCopy" 
+                                        style="width: 100%"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <div class="field is-vertical" ng-show="!IsCarbonCopyVisible">
+                            <span class="custom-anchor">
+                                <a href="" id="carbonCopyAnchor">Cc
+                                    <i class="custom-anchor-icon material-icons md-18">create</i>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="field is-vertical" ng-show="!IsBlindCarbonCopyVisible">
+                            <span class="custom-anchor">
+                                <a href="" id="blindCarbonCopyAnchor">Bcc
+                                    <i class="custom-anchor-icon material-icons md-18">create</i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-vertical">
+                    <div class="field-label is-normal">
+                        <label class="label">Subject:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <textarea data-kendo-editor
+                                      id="editorSubject"
+                                      class="override-editor"
+                                      ng-model="dataItem.Subject"
+                                      k-encoded="false"
+                                      k-options="optKendoEditorSubject"
+                                      required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-vertical">
+                    <div class="field-label is-normal">
+                        <label class="label">Body:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <textarea data-kendo-editor 
+                                      id="editorBody"
+                                      ng-model="dataItem.Body" 
+                                      k-encoded="false"
+                                      style="height: 27.5em;" 
+                                      k-options="optKendoEditorBody"
+                                      required></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

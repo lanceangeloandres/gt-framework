@@ -1,0 +1,49 @@
+<script type="text/x-kendo-template" id="grdEducationalBackground">
+    <div class="card">
+        <div class="card-content">
+            <div class="field">
+                <label class="label">School</label>
+                <div class="control">
+                    <input id='SchoolName' kendo-drop-down-list style="width: 100%" k-ng-model="dataItem.School" k-options="optSchoolName" required="required"  />
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">From</label>
+                <div class="control">
+                    <input data-role="datepicker" k-ng-model="dataItem.StartDate" style="width: 100%;" kendo-date-picker>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">To</label>
+                <div class="control">
+                    <input data-role="datepicker" k-ng-model="dataItem.EndDate" style="width: 100%;" kendo-date-picker>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Educational Level</label>
+                <div class="control">
+                    <input kendo-drop-down-list k-ng-model="dataItem.EducLevel" k-options="optEducLevel" style="width: 100%" required="required"  />
+                </div>
+            </div>
+            <div class="field" ng-show="dataItem.EducLevel.HasCourseDesc">
+                <label class="label">Course</label>
+                <div class="control">
+                    <input kendo-drop-down-list data-role="dropdownlist" k-ng-model="dataItem.SchoolCourse" ng-required="dataItem.EducLevel.HasCourseDesc" k-options="optCourse" style="width: 100%" />
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Remarks</label>
+                <div class="control">
+                    <textarea ng-model="dataItem.Remarks" style="width: 100%" class="k-textbox"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        <div kendo-grid="grdRecognition" id="grdRecognitionId" k-options="optGrdRecognition">
+        </div>
+
+
+    </div>
+    
+</script>

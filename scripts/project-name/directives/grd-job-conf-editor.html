@@ -1,0 +1,149 @@
+﻿<script type="text/x-kendo-template" id="grdJobConfEditor">
+    <div class="k-edit-form-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="columns">
+                    <div class="column">
+                        <div class="field is-vertical">
+                            <div class="field-label is-normal">
+                                <label class="label">
+                                    <span class="has-text-weight-semibold">Entity: </span>
+                                </label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input kendo-drop-down-list
+                                               id="ddlSubClient"
+                                               k-ng-model="dataItem.SubClient"
+                                               k-options="optSubClient"
+                                               style="width: 100%" 
+                                               required/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-vertical" ng-show="ddlDivisionIsVisible">
+                            <div class="field-label is-normal">
+                                <label class="label">
+                                    <span class="has-text-weight-semibold">Division: </span>
+                                </label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input kendo-drop-down-list 
+                                               id="ddlDivision" 
+                                               k-ng-model="dataItem.Division" 
+                                               k-options="optDivision"
+                                               style="width: 100%"
+                                               required/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-vertical" ng-show="ddlDepartmentIsVisible">
+                            <div class="field-label is-normal">
+                                <label class="label">
+                                    <span class="has-text-weight-semibold">Department: </span>
+                                </label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input kendo-drop-down-list 
+                                               id ="ddlDepartment" 
+                                               k-ng-model="dataItem.Department"
+                                               k-options="optDepartment"
+                                               style="width: 100%"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field is-vertical" ng-show="ddlSectionIsVisible">
+                            <div class="field-label is-normal">
+                                <label class="label">
+                                    <span class="has-text-weight-semibold">Section: </span>
+                                </label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input kendo-drop-down-list
+                                               id="ddlSection"
+                                               k-ng-model="dataItem.Section"
+                                               k-options="optSection"
+                                               style="width: 100%" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-vertical" ng-show="ddlPositionIsVisible">
+                            <div class="field-label is-normal">
+                                <label class="label">
+                                    <span class="has-text-weight-semibold">Position: </span>
+                                </label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <input kendo-drop-down-list
+                                               id="ddlPosition"
+                                               k-ng-model="dataItem.Position"
+                                               k-options="optPosition"
+                                               style="width: 100%" 
+                                               required/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-vertical" ng-show="ddlPositionIsVisible">
+                            <div class="field-label is-normal">
+                                <label class="label">
+                                    <span class="has-text-weight-semibold">Job Level: </span>
+                                </label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <span>{{ dataItem.Position.JobLevel.Name }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<hr>-->  
+                <div class="column">
+                    <div kendo-tab-strip k-content-urls="[ null, null]" k-animation="false">
+                        <ul>
+                            <li data-value="JobDescription" class="k-state-active">Description</li>
+                            <li data-value="JobResposibilities">Resposibilities</li>
+                            <li data-value="JobQualification">Qualification</li>
+                            <li data-value="JobPrefQualification">Preferred Qualification</li>
+                        </ul>
+
+                        <!-- JobDescription -->
+                        <div tab-container>
+                            <div id="grdJobDescription"></div>
+                        </div>
+                        <!-- JobResposibilities -->
+                        <div tab-container>
+                            <div id="grdJobResponsibilities"></div>
+                        </div>
+                        <!-- JobQualification -->
+                        <div tab-container>
+                            <div id="grdJobQualification"></div>
+                        </div>
+                        <!-- JobPrefQualification -->
+                        <div tab-container>
+                            <div id="grdJobPrefQualification"></div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+        </div>
+    </div>
+</script>

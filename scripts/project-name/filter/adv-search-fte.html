@@ -1,0 +1,161 @@
+﻿<script type="text/x-kendo-template" id="advSearchFte">
+    <div id="accordionFteTab">
+        <div id="advsearchaccordion" ng-class="{'card-disable': active, 'card-not-disabled': !active}" class="card card-disable">
+            <div id="advsearchcard" ng-class="{'card-brand': active, 'card-not-brand': !active}"
+                 class="card-header card-header-text card-brand"
+                 data-ng-click="active = !active"
+                 data-background-color="brand"
+                 aria-controls="advancedSearch1"
+                 aria-expanded="true"
+                 data-target="\#advancedSearch1"
+                 data-toggle="collapse">
+                <span search-label>Search</span>
+            </div>
+
+            <div id="advancedSearch1" class="collapse" aria-labelledby="searchFte"
+                 data-parent="\#accordionFteTab">
+                <div class="card-content">
+                    <div class="columns is-desktop">
+                        <div class="column">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Entity: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-drop-down-list
+                                                       id="ddlSubClientFilter"
+                                                       ng-model="FilterBy.SubClient"
+                                                       k-options="optSubClient"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Division: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-drop-down-list
+                                                       id="ddlDivisionFilter"
+                                                       ng-model="FilterBy.Division"
+                                                       k-options="optDivision"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Department: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-drop-down-list
+                                                       id="ddlDepartmentFilter"
+                                                       ng-model="FilterBy.Department"
+                                                       k-options="optDepartment"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Section: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-drop-down-list
+                                                       id="ddlSectionFilter"
+                                                       ng-model="FilterBy.Section"
+                                                       k-options="optSection"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Position: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-drop-down-list
+                                                       id="ddlPositionFilter"
+                                                       ng-model="FilterBy.Position"
+                                                       k-options="optPosition"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Job Level: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <input kendo-drop-down-list
+                                                       id="ddlJobLevelFilter"
+                                                       ng-model="FilterBy.JobLevel"
+                                                       k-options="optJobLevel"
+                                                       style="width: 100%" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="field is-grouped is-grouped-right">
+                                <p class="control">
+                                    <button type="button"
+                                            class="k-button"
+                                            ng-click="filterApp()">
+                                        Search
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

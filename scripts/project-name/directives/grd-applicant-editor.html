@@ -1,0 +1,739 @@
+﻿<script type="text/x-kendo-template" id="grdApplicantEditor">
+    <div kendo-tab-strip id="editKendoTabStrip" k-content-urls="[ null, null]" k-animation="false" data-k-options="tsMainOptPData">
+        <ul>
+            <li data-value="Information" class="k-state-active">Information</li>
+            <li data-value="Application">Application</li>
+        </ul>
+
+        <!-- Basic Info -->
+        <div tab-container id="mainView">
+            <form edit-applicant-form form-validation="editApplicantValidation">
+                <ul class="stepper linear edit-stepper">
+                    <li class="step active" id="basicInfoStep">
+                        <div class="step-title waves-effect">BASIC INFORMATION</div>
+                        <div class="step-content">
+                            <div class="flex-card raised">
+                                <div class="card-body">
+                                    <div class="content">
+                                        <div class="columns">
+                                            <div class="column">
+                                                <div class="field">
+                                                    <div class="form-check form-check-inline">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input id="IsRehire" ng-model="dataItem.ApplicantInfo.IsRehired" type="checkbox" class="custom-control-input"  ng-disabled="!dataItem.ApplicantInfo.CanUpdate">
+                                                            <label class="custom-control-label has-text-weight-semibold is-uppercase" for="IsRehire">
+                                                                Rehire
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <div class="field is-vertical">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Date Applied: </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="cp-2">
+                                                            {{ dataItem.DateApplied | date }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <div class="field is-vertical">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Last Name: </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="field">
+                                                            <div class="control">
+                                                                <input class="k-textbox is-uppercase fieldRequired applicantInfo" 
+                                                                    style="width: 100%;" 
+                                                                    type="text"
+                                                                    ng-disabled="!dataItem.ApplicantInfo.CanUpdate"
+                                                                    ng-model="dataItem.ApplicantInfo.LastName"
+                                                                    validationMessage="Please enter the applicant's last name."
+                                                                    required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field is-vertical">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">First Name: </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="field">
+                                                            <div class="control">
+                                                                <input class="k-textbox is-uppercase fieldRequired applicantInfo" 
+                                                                    style="width: 100%;" 
+                                                                    type="text"
+                                                                    ng-disabled="!dataItem.ApplicantInfo.CanUpdate"
+                                                                    ng-model="dataItem.ApplicantInfo.FirstName"
+                                                                    validationMessage="Please enter the applicant's first name."
+                                                                    required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field is-vertical">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Middle Name: </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="field">
+                                                            <div class="control">
+                                                                <input class="k-textbox is-uppercase applicantInfo"                                                                                     
+                                                                       style="width: 100%;"                                                                                      
+                                                                       type="text"
+                                                                       ng-disabled="!dataItem.ApplicantInfo.CanUpdate"
+                                                                       validationMessage="Please enter the applicant's middle name."
+                                                                       ng-model="dataItem.ApplicantInfo.MiddleName" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <div class="field is-vertical">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Gender: </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="field">
+                                                            <div class="control">
+                                                                <input kendo-drop-down-list
+                                                                    class="fieldRequired"
+                                                                    ng-disabled="!dataItem.ApplicantInfo.CanUpdate"
+                                                                    id="ddlGender"
+                                                                    data-ng-model="dataItem.ApplicantInfo.Gender"                                                                                     
+                                                                    k-options="optGender"
+                                                                    style="width: 100%"                                                       
+                                                                    required />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field is-vertical">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Civil Status: </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="field">
+                                                            <div class="control">
+                                                                <input kendo-drop-down-list
+                                                                    id="ddlCivilStatus"
+                                                                    ng-disabled="!dataItem.ApplicantInfo.CanUpdate"
+                                                                    class="fieldRequired"
+                                                                    data-ng-model="dataItem.ApplicantInfo.CivilStatus"
+                                                                    k-options="optCivilStatus"
+                                                                    style="width: 100%"
+                                                                    required />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field is-vertical">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Nationality: </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="field">
+                                                            <div class="control">
+                                                                <input kendo-drop-down-list
+                                                                    class="fieldRequired"
+                                                                    id="ddlNationality"
+                                                                    ng-disabled="!dataItem.ApplicantInfo.CanUpdate"
+                                                                    k-ng-model="dataItem.ApplicantInfo.Nationality"
+                                                                    k-options="optNationality"
+                                                                    style="width: 100%"
+                                                                    required />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <div class="field is-vertical">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Nickname: </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="field">
+                                                            <div class="control">
+                                                                <input class="k-textbox is-uppercase fieldRequired applicantInfo" 
+                                                                    style="width: 100%;" type="text"
+                                                                    ng-model="dataItem.ApplicantInfo.NickName"
+                                                                    ng-disabled="!dataItem.ApplicantInfo.CanUpdate"
+                                                                    validationMessage="Please enter the applicant's nickname."
+                                                                    required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field is-vertical">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">Birthdate: </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="field">
+                                                            <div class="control">
+                                                                <input style="width:100%;"
+                                                                    class="fieldRequired"
+                                                                    placeholder="Please Select"
+                                                                    kendo-date-picker
+                                                                    ng-disabled="!dataItem.ApplicantInfo.CanUpdate"
+                                                                    k-ng-model="dataItem.ApplicantInfo.Birthdate"
+                                                                    k-options="optBirthdate"
+                                                                    ng-required="true" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column">
+                                                <div class="field is-vertical">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">
+                                                                Job Source:
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="field">
+                                                            <div class="control">
+                                                                <input kendo-drop-down-list
+                                                                    id="ddlAppJobSource"
+                                                                    ng-disabled="!dataItem.ApplicantInfo.CanUpdate"
+                                                                    class="fieldRequired"
+                                                                    k-ng-model="dataItem.ApplicantInfo.JobSource"
+                                                                    k-options="optAppJobSource"
+                                                                    style="width: 100%"
+                                                                    ng-disabled="obervableEnabled"
+                                                                    required />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column" ng-show="dataItem.ApplicantInfo.JobSource.IsWithAssignedEmp">
+                                                <div class="field is-vertical">
+                                                    <div class="field-label is-normal">
+                                                        <label class="label">
+                                                            <span class="has-text-weight-semibold">
+                                                                Referee:
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="field-body">
+                                                        <div class="field">
+                                                            <div class="control">
+                                                                <input kendo-drop-down-list
+                                                                    style="width:100%;"
+                                                                    id="refereeEdit"
+                                                                    name="Referee"
+                                                                    k-ng-model="dataItem.ApplicantInfo.Referee"
+                                                                    k-options="optRefereeEdit"
+                                                                    placeholder="Please Select"
+                                                                    validationMessage="Please enter the applicant's referee."
+                                                                    ng-required='dataItem.ApplicantInfo.JobSource.IsWithAssignedEmp' />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button class="waves-effect waves-dark k-button mr-1" ng-click="onEditPrevStep()">Back</button>
+                                <button class="waves-effect waves-dark k-button k-primary" ng-click="onEditNextStep()">Next</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="step" id="contactInfoStep">
+                        <div class="step-title waves-effect">CONTACT INFORMATION</div>
+                        <div class="step-content">
+                            <div class="flex-card raised">
+                                <div class="card-body">
+                                    <div class="content">
+                                        <div class="field" ng-show="contIndex !== null">
+                                            <label class="label">{{ dataItem.ApplicantInfoCont[contIndex].ContactBase.Name }}:</label>
+                                            <div class="control">
+                                                <input 
+                                                ng-disabled="!dataItem.ApplicantInfoCont[contIndex].CanUpdate"
+                                                class="k-textbox fieldRequired applicantInfoCont"
+                                                style="width: 100%;" type="text"
+                                                ng-model="dataItem.ApplicantInfoCont[contIndex].Value" required>
+                                            </div>
+                                        </div>
+                                        <div class="field" ng-show="emailIndex !== null">
+                                            <label class="label">{{ dataItem.ApplicantInfoCont[emailIndex].ContactBase.Name }}:</label>
+                                            <div class="control">
+                                                <input
+                                                ng-disabled="!dataItem.ApplicantInfoCont[contIndex].CanUpdate"
+                                                class="k-textbox fieldRequired applicantInfoCont"
+                                                style="width: 100%;" type="text"
+                                                ng-model="dataItem.ApplicantInfoCont[emailIndex].Value" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button class="waves-effect waves-dark k-button mr-1" ng-click="onEditPrevStep()">Back</button>
+                                <button class="waves-effect waves-dark k-button k-primary" ng-click="onEditNextStep()">Next</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="step" id="addressInfoStep">
+                        <div class="step-title waves-effect">ADDRESS INFORMATION</div>
+                        <div class="step-content">
+                            <div class="flex-card raised">
+                                <div class="card-body">
+                                    <div class="content">
+                                        <div class="columns">
+                                            <div class="column" ng-show="presentAddrIndex !== null">
+                                                <div class="card">
+                                                    <div class="card-header card-header-text" data-background-color="brand">{{ dataItem.ApplicantInfoAddr[presentAddrIndex].AddressBase.Name }} </div>
+                                                    <div class="card-content">
+                                                        <div class="field">
+                                                            <label class="label">Country:</label>
+                                                            <div class="control">
+                                                                <input id="CountryPresentAddr"
+                                                                class="fieldRequired"
+                                                                data-k-ng-model="dataItem.ApplicantInfoAddr[presentAddrIndex].Country"
+                                                                ng-disabled="!dataItem.ApplicantInfoAddr[presentAddrIndex].CanUpdate"
+                                                                k-options="optCountryPresentAddr"
+                                                                data-kendo-drop-down-list=""
+                                                                ng-required="dataItem.ApplicantInfoAddr[presentAddrIndex].AddressBase.UID.toLowerCase() === 'ec0024b3-cc5e-4a99-bd40-889a3ccca345'"
+                                                                style="width: 100%;" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="field">
+                                                            <label class="label">Region:</label>
+                                                            <div class="control">
+                                                                <input id="RegionPresentAddr"
+                                                                class="fieldRequired"
+                                                                ng-model="dataItem.ApplicantInfoAddr[presentAddrIndex].Region"
+                                                                data-bind="value: ApplicantInfoAddr[presentAddrIndex].Region"
+                                                                kendo-combo-box=""
+                                                                ng-disabled="!dataItem.ApplicantInfoAddr[presentAddrIndex].CanUpdate"
+                                                                k-options="optRegionPresentAddr"
+                                                                ng-required="dataItem.ApplicantInfoAddr[presentAddrIndex].AddressBase.UID.toLowerCase() === 'ec0024b3-cc5e-4a99-bd40-889a3ccca345'"
+                                                                style="width: 100%;" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="field">
+                                                            <label class="label">Provincial:</label>
+                                                            <div class="control">
+                                                                <input id="ProvincialPresentAddr"
+                                                                class="fieldRequired"
+                                                                ng-model="dataItem.ApplicantInfoAddr[presentAddrIndex].Provincial"
+                                                                data-bind="value: ApplicantInfoAddr[presentAddrIndex].Provincial"
+                                                                kendo-combo-box=""
+                                                                ng-disabled="!dataItem.ApplicantInfoAddr[presentAddrIndex].CanUpdate"
+                                                                k-options="optProvincialPresentAddr"
+                                                                ng-required="dataItem.ApplicantInfoAddr[presentAddrIndex].AddressBase.UID.toLowerCase() === 'ec0024b3-cc5e-4a99-bd40-889a3ccca345'"
+                                                                style="width: 100%;" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="field">
+                                                            <label class="label">City:</label>
+                                                            <div class="control">
+                                                                <input id="CityPresentAddr"
+                                                                class="fieldRequired"
+                                                                ng-model="dataItem.ApplicantInfoAddr[presentAddrIndex].City" 
+                                                                data-bind="value: ApplicantInfoAddr[presentAddrIndex].City"
+                                                                kendo-combo-box=""
+                                                                ng-disabled="!dataItem.ApplicantInfoAddr[presentAddrIndex].CanUpdate"
+                                                                k-options="optCityPresentAddr"
+                                                                ng-required="dataItem.ApplicantInfoAddr[presentAddrIndex].AddressBase.UID.toLowerCase() === 'ec0024b3-cc5e-4a99-bd40-889a3ccca345'"
+                                                                style="width: 100%;" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="field">
+                                                            <label class="label">Barangay:</label>
+                                                            <div class="control">
+                                                                <input id="BarangayPresentAddr"
+                                                                class="fieldRequired"
+                                                                ng-model="dataItem.ApplicantInfoAddr[presentAddrIndex].District"
+                                                                data-bind="value: ApplicantInfoAddr[presentAddrIndex].District"
+                                                                kendo-combo-box=""
+                                                                ng-disabled="!dataItem.ApplicantInfoAddr[presentAddrIndex].CanUpdate"
+                                                                k-options="optBrgyPresentAddr"
+                                                                ng-required="dataItem.ApplicantInfoAddr[presentAddrIndex].AddressBase.UID.toLowerCase() === 'ec0024b3-cc5e-4a99-bd40-889a3ccca345'"
+                                                                style="width: 100%;" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="field">
+                                                            <label class="label">Street:</label>
+                                                            <div class="control">
+                                                                <input id="StreetPresentAddr"
+                                                                data-ng-model="dataItem.ApplicantInfoAddr[presentAddrIndex].StreetAddress"
+                                                                class="k-textbox fieldRequired applicantInfoAddr"
+                                                                ng-disabled="!dataItem.ApplicantInfoAddr[presentAddrIndex].CanUpdate"
+                                                                ng-required="dataItem.ApplicantInfoAddr[presentAddrIndex].AddressBase.UID.toLowerCase() === 'ec0024b3-cc5e-4a99-bd40-889a3ccca345'"
+                                                                style="width: 100%;" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="field">
+                                                            <label class="label">Postal Code:</label>
+                                                            <div class="control">
+                                                                <input id="PostalPresentAddr"
+                                                                data-ng-model="dataItem.ApplicantInfoAddr[presentAddrIndex].PostalCode"
+                                                                ng-disabled="!dataItem.ApplicantInfoAddr[presentAddrIndex].CanUpdate"
+                                                                ng-required="dataItem.ApplicantInfoAddr[presentAddrIndex].AddressBase.UID.toLowerCase() === 'ec0024b3-cc5e-4a99-bd40-889a3ccca345'"
+                                                                class="k-textbox fieldRequired applicantInfoAddr"
+                                                                style="width: 100%;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button class="waves-effect waves-dark k-button mr-1" ng-click="onEditPrevStep()">Back</button>
+                                <button class="waves-effect waves-dark k-button k-primary" ng-click="onEditNextStep()">Next</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="step" id="educInfoStep"> 
+                        <div class="step-title waves-effect">EDUCATIONAL BACKGROUND</div>
+                        <div class="step-content">
+                            <div class="flex-card raised">
+                                <div class="card-body">
+                                   <div grd-educ-container>
+                                        <div kendo-grid id="grdEducationEdit" k-options="optGrdEducationEdit" required></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button class="waves-effect waves-dark k-button mr-1" ng-click="onEditPrevStep()">Back</button>
+                                <button class="waves-effect waves-dark k-button k-primary" ng-click="onEditNextStep()" >Next</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="step" id="workInfoStep">
+                        <div class="step-title waves-effect">WORK EXPERIENCE</div>
+                        <div class="step-content">
+                            <div class="flex-card raised">
+                                <div class="card-body">
+                                    <div grd-prevwork-container>
+                                        <div id="grdPrevWorkEdit" kendo-grid="grdPrevWorkEdit" k-options="optGrdPrevWorkEdit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button class="waves-effect waves-dark k-button mr-1" ng-click="onEditPrevStep()">Back</button>
+                                <button class="waves-effect waves-dark k-button k-primary" ng-click="onEditNextStep()">Next</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="step" id="licensesStep">
+                        <div class="step-title waves-effect">LICENSES AND CERTIFICATION</div>
+                        <div class="step-content">
+                            <div class="flex-card raised">
+                                <div class="card-body">
+                                    <div grd-license-container>
+                                        <div kendo-grid id="grdLicensesEdit" k-options="optGrdLicensesEdit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button class="waves-effect waves-dark k-button mr-1" ng-click="onEditPrevStep()">Back</button>
+                                <button class="waves-effect waves-dark k-button k-primary" type="submit" ng-disabled="!dataItem.ApplicantInfo.CanUpdate" ng-click="onEditSubmit()">Submit</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+
+        <!-- Application -->
+        <div tab-container>
+            <div class="card">
+                <div class="card-content">
+                    <div kendo-grid id="grdApplication" k-options="optGrdApplication"></div>
+                </div>
+                <div kendo-window="viewManpowerReq" k-options="optViewManpowerReq">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Entity: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field cp-2">
+                                                <span>{{ view_dataItem.ManpowerRequest.SubClient.Name }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Division: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field cp-2">
+                                                <span>{{ view_dataItem.ManpowerRequest.Division.Name }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field is-horizontal" ng-show="view_dataItem.ManpowerRequest.Department !== null">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Department: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field cp-2">
+                                               <span>{{ view_dataItem.ManpowerRequest.Department.Name }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field is-horizontal" ng-show="view_dataItem.ManpowerRequest.Section !== null">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Section: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field cp-2">
+                                                <span>{{ view_dataItem.ManpowerRequest.Section.Name }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Position: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field cp-2">
+                                                <span>{{ view_dataItem.ManpowerRequest.Position.Name }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">
+                                                <span class="has-text-weight-semibold">Job Level: </span>
+                                            </label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field cp-2">
+                                                <span>{{ view_dataItem.ManpowerRequest.Position.JobLevel.Name }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                           
+                            </div>
+                            <hr />
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label class="label">
+                                        <span class="has-text-weight-semibold">Status: </span>
+                                    </label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field cp-2">
+                                        <span>{{ view_dataItem.ManpowerRequest.EmpStatus.Name }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label class="label">
+                                        <span class="has-text-weight-semibold">Classification: </span>
+                                    </label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field cp-2">
+                                        <span>{{ view_dataItem.ManpowerRequest.EmpClassification.Name }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label class="label">
+                                        <span class="has-text-weight-semibold">Location: </span>
+                                    </label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field cp-2">
+                                        <span>{{ view_dataItem.ManpowerRequest.Location.Name }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label class="label">
+                                        <span class="has-text-weight-semibold">Request Status: </span>
+                                    </label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field cp-2">
+                                        <span>{{ view_dataItem.ManpowerRequest.RequestStatus.Name }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label class="label">
+                                        <span class="has-text-weight-semibold">Requested By: </span>
+                                    </label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field cp-2">
+                                        <span>{{ view_dataItem.ManpowerRequest.Requestor.FullName }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label class="label">
+                                        <span class="has-text-weight-semibold">Requested On: </span>
+                                    </label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field cp-2">
+                                        <span>{{ view_dataItem.ManpowerRequest.RequestedDate | date }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label class="label">
+                                        <span class="has-text-weight-semibold">Remaining Num of Slots: </span>
+                                    </label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field cp-2">
+                                        <span>{{ view_dataItem.ManpowerRequest.RemainingNumOfSlots }} <i data-toggle='tooltip' data-placement='top' icon-align class='material-icons md-18 tooltipstered balance-computation-{{ view_dataItem.UID }}'>info</i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</script>
+
+<script type="text/x-kendo-template" id="mrf-slots-computation">
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Approved Slots</th>
+                <th>Current Slots</th>
+                <th>Remaining Slots</th>
+            </tr>
+        </thead>
+        <tbody>
+            # for (var i = 0; i < ManpowerRequestEmpStatScope.length; i++) { #
+            <tr>
+                <th>#: ManpowerRequestEmpStatScope[i].EmpStatus.Name #</th>
+                <td>#: ManpowerRequestEmpStatScope[i].ApprovedNumOfSlots #</td>
+                <td>#: ManpowerRequestEmpStatScope[i].CurrentOccupiedNumOfSlots #</td>
+                <td>#: ManpowerRequestEmpStatScope[i].RemainingNumOfSlots #</td>
+            </tr>
+            # } #
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total</th>
+                <td class="mrf-total-slots">#: ApprovedNumOfSlots #</td>
+                <td class="mrf-total-slots">#: CurrentOccupiedNumOfSlots #</td>
+                <td class="mrf-total-slots">#: RemainingNumOfSlots #</td>
+            </tr>
+        </tfoot>
+    </table>
+</script>
+
+<script type="text/x-kendo-template" id="grdInterviewScopeTemplate">
+    <div data-kendo-grid="grdInterviewScope" id="grdInterviewScope" data-k-options="optGrdInterview">
+        <div kendo-window="InterviewApproverViewWindow" k-options="optInterviewApproverViewWindow">
+            <div data-kendo-grid="grdInterviewApproverDetails" id="grdInterviewApproverDetails" data-k-options="optGrdInterviewApproverDetails">
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="grdExamScopeTemplate">
+    <div data-kendo-grid="grdExamScope" id="grdExamScope" data-k-options="optGrdExam">
+        <div kendo-window="ExamApproverViewWindow" k-options="optExamApproverViewWindow">
+            <div data-kendo-grid="grdExamApproverDetails" id="grdExamApproverDetails" data-k-options="optGrdExamApproverDetails">
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="grdHistoryScopeTemplate">
+    <div data-kendo-grid="grdHistoryScope" id="grdHistoryScope" data-k-options="optGrdHistory">
+    </div>
+</script>
+<script type="text/x-kendo-template" id="grdOnboardingScopeTemplate">
+    <div data-kendo-grid="grdOnboardingScope" id="grdOnboardingScope" data-k-options="optGrdOnboarding">
+    </div>
+</script>
+<script type="text/x-kendo-template" id="grdTransferInfoScopeTemplate">
+    <div data-kendo-grid="grdTransferInfoScope" id="grdTransferInfoScope" data-k-options="optGrdTransferInfo">
+    </div>
+</script>
+<script type="text/x-kendo-template" id="grdAttachmentScopeTemplate">
+    <input name="files" type="file" kendo-upload
+           k-async="{ saveUrl: 'save', removeUrl: 'remove', autoUpload: true }" />
+</script>

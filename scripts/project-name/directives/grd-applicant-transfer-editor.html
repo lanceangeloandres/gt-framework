@@ -1,0 +1,199 @@
+﻿<script id="template" type="text/x-kendo-template">
+    <span class="#: InActive ? 'k-state-disabled': ''#">
+        #: Name #
+    </span>
+</script>
+<script type="text/x-kendo-template" id="grdApplicantTransferEditor">
+    <div class="k-edit-form-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Type:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input kendo-drop-down-list
+                                       id="ddlTransferType"
+                                       k-ng-model="dataItem.TransferType"
+                                       k-options="optTransferType"
+                                       style="width: 100%"
+                                       required /> <!--data-bind="value: TransferType" k-ng-model="dataItem.TransferType"-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="field is-horizontal" ng-show="dataItem.ApplicantManpowerReq.Applicant.ApplicantInfo.IsRehired">
+                    <div class="field-label is-normal">
+                        <label class="label">
+                            <span class="has-text-weight-semibold">Employee: </span>
+                        </label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input kendo-drop-down-list
+                                       id="ddlEmployee"
+                                       k-ng-model="dataItem.Employee"
+                                       k-options="optEmp"
+                                       ng-required="dataItem.ApplicantManpowerReq.Applicant.ApplicantInfo.IsRehired"
+                                       style="width: 100%" /> <!-- data-bind="value: Employee" k-ng-model="dataItem.Emp"-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Transfer Remarks:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="k-input k-textbox" name="Remarks" data-bind="value:Remarks" style="width: 100%; height: 8em;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Date Hired:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <input style="width:100%;"
+                                   name="Hired Date"
+                                   placeholder="Please Select"
+                                   kendo-date-picker
+                                   ng-model="dataItem.ApplicantManpowerReq.ApplicantHiringStageLog.DateHired"
+                                   k-options="optHiredDate"
+                                   required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Company Email:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <input class="k-textbox"
+                                   type="email"
+                                   name="ApplicantCompanyEmail"
+                                   validationMessage="Please enter a valid email address"
+                                   style="width: 100%;"
+                                   ng-model="dataItem.ApplicantManpowerReq.Applicant.ApplicantCompanyEmail.Value"
+                                   /> <!--data-bind="value: ApplicantManpowerReq.Applicant.ApplicantCompanyEmail.Value" "-->
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Employee Status:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input kendo-drop-down-list
+                                       id="ddlEmpStatus"
+                                       k-ng-model="dataItem.ApplicantConfig.EmployeeStatus"
+                                       k-options="optEmpStatus"
+                                       style="width: 100%"
+                                       required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Employee Group:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input kendo-drop-down-list
+                                       id="ddlEmployeeGrp"
+                                       k-ng-model="dataItem.ApplicantConfig.EmployeeGroup"
+                                       k-options="optEmployeeGrp"
+                                       style="width: 100%"
+                                       required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Currency:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input kendo-drop-down-list
+                                       id="ddlCurrency"
+                                       k-ng-model="dataItem.ApplicantConfig.Currency"
+                                       k-options="optCurrency"
+                                       style="width: 100%"
+                                       required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Tax Type:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input kendo-drop-down-list
+                                       id="ddlTaxType"
+                                       k-ng-model="dataItem.ApplicantConfig.TaxType"
+                                       k-options="optTaxType"
+                                       style="width: 100%"
+                                       required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Tax Exemption:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input kendo-drop-down-list
+                                       id="ddlTaxExemption"
+                                       k-ng-model="dataItem.ApplicantConfig.TaxExemption"
+                                       k-options="optTaxExemption"
+                                       style="width: 100%"
+                                       required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Payment Type:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input kendo-drop-down-list
+                                       id="ddlPaymentType"
+                                       k-ng-model="dataItem.ApplicantConfig.PaymentType"
+                                       k-options="optPaymentType"
+                                       style="width: 100%"
+                                       required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
